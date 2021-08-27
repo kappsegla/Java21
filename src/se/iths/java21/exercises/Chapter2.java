@@ -1,5 +1,6 @@
 package se.iths.java21.exercises;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Chapter2 {
@@ -7,7 +8,9 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task7();
+        task6();
+
+
     }
 
     private static void task3() {
@@ -74,6 +77,33 @@ public class Chapter2 {
         }
     }
 
+    private static void task6() {
+
+        int userGuess = 0;
+        int randomNum = (int) (Math.random() * 100) + 1;
+        int counter = 0;
+        while (userGuess != randomNum) {
+            System.out.println("Enter a number, 1 - 100: ");
+            userGuess = scanner.nextInt();
+
+//            try {
+//                userGuess = scanner.nextInt();
+//            } catch (InputMismatchException ignored) {
+//                System.out.println("Invalid guess");
+//                scanner.nextLine();
+//                userGuess = 0;
+//            }
+            counter++;
+
+            if (userGuess == randomNum)
+                System.out.println("Correct! Nr of guesses: " + counter);
+            else if (userGuess > randomNum)
+                System.out.println("Guess is too High!");
+            else
+                System.out.println("Guess is too Low!");
+        }
+    }
+
 
     private static void task7() {
 
@@ -86,8 +116,8 @@ public class Chapter2 {
         }
 
         int i = 0;
-        while(i < 16){
-            System.out.println(i+1);
+        while (i < 16) {
+            System.out.println(i + 1);
             i++;
         }
     }
