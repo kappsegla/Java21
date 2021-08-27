@@ -8,9 +8,7 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task8();
-
-
+        task9();
     }
 
     private static void task3() {
@@ -128,6 +126,20 @@ public class Chapter2 {
         for (int i = 20; i > 0 ; i--) {
             if (i%2 == 0)
                 System.out.println(i);
+        }
+
+    }
+
+    private static void task9() {
+        int number = 65536;
+
+        while (number > 2) {
+            System.out.println(number);
+            number = number >> 1;
+        }
+
+        for (int i = 65536; i >= 2; i = i >> 1) {
+            System.out.println(i);
         }
 
     }
