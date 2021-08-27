@@ -61,7 +61,6 @@ public class Chapter1 {
     */
     }
 
-
     private static void task7() {
         System.out.println("Hur mycket pengar har du på ditt konto?: ");
         double balance = Double.parseDouble(scanner.nextLine());
