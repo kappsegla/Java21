@@ -7,7 +7,7 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task5();
+        task7();
     }
 
     private static void task3() {
@@ -74,4 +74,21 @@ public class Chapter2 {
         }
     }
 
+
+    private static void task7() {
+
+        for (int i = 0; i < 16; i++) {
+            System.out.println(i + 1);
+        }
+
+        for (int i = 1; i <= 16; i++) {
+            System.out.println(i);
+        }
+
+        int i = 0;
+        while(i < 16){
+            System.out.println(i+1);
+            i++;
+        }
+    }
 }
