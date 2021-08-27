@@ -7,7 +7,7 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task4();
+        task5();
     }
 
     private static void task3() {
@@ -41,6 +41,37 @@ public class Chapter2 {
         else
             System.out.println("Ditt nummer är större än 100.");
 
+    }
+
+    private static void task5() {
+
+        while (true) {
+            System.out.println("Skriv en månad: ");
+            String month = scanner.nextLine().toLowerCase();
+
+            int monthNumber = switch (month) {
+                case "januari" -> 1;
+                case "februari" -> 2;
+                case "mars" -> 3;
+                case "april" -> 4;
+                case "maj" -> 5;
+                case "juni" -> 6;
+                case "juli" -> 7;
+                case "augusti" -> 8;
+                case "september" -> 9;
+                case "oktober" -> 10;
+                case "november" -> 11;
+                case "december" -> 12;
+                default -> 0;
+            };
+
+            if (monthNumber == 0)
+                System.out.println("Jag förstår inte vilken månad du menar, testa igen");
+            else {
+                System.out.println("Det är månad nummer " + monthNumber);
+                break;
+            }
+        }
     }
 
 }
