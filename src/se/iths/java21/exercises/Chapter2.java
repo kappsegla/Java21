@@ -8,7 +8,7 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task10();
+        task12();
     }
 
     private static void task3() {
@@ -148,12 +148,11 @@ public class Chapter2 {
         String entireString = "";
         String newString;
 
-        
         while (true) {
             System.out.println("Enter a string of text: (Cancel with . or enter) ");
             newString = scanner.nextLine();
 
-            if (newString.equals("") || newString.equals("."))
+            if (newString.isEmpty() || newString.equals("."))
                 break;
 
             if (entireString.isEmpty())
@@ -162,6 +161,34 @@ public class Chapter2 {
                 entireString += (" " + newString);
         }
         System.out.println(entireString);
-        
+
+    }
+
+    private static void task11() {
+        System.out.println("Skriv ett tal: ");
+        int number = Integer.parseInt(scanner.nextLine());
+
+        while (number > 2) {
+            if (number % 2 == 1) {
+                number = number * 3 + 1;
+//                number *= 3;
+//                number++;
+            } else
+                number = number >> 1;
+
+            System.out.println("Det nya talet är: " + number);
+        }
+    }
+
+    private static void task12() {
+        for(int y=0; y<5; y++) {
+            for(int x=0; x<5; x++) {
+                if( x == y )
+                    System.out.print("#");
+                else
+                    System.out.print(".");
+            }
+            System.out.println("");
+        }
     }
 }
