@@ -8,7 +8,7 @@ public class Chapter2 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task9();
+        task10();
     }
 
     private static void task3() {
@@ -120,11 +120,11 @@ public class Chapter2 {
     }
 
     private static void task8() {
-        for(int i = 20; i >= 2; i-=2)
+        for (int i = 20; i >= 2; i -= 2)
             System.out.println(i);
 
-        for (int i = 20; i > 0 ; i--) {
-            if (i%2 == 0)
+        for (int i = 20; i > 0; i--) {
+            if (i % 2 == 0)
                 System.out.println(i);
         }
 
@@ -142,5 +142,26 @@ public class Chapter2 {
             System.out.println(i);
         }
 
+    }
+
+    private static void task10() {
+        String entireString = "";
+        String newString;
+
+        
+        while (true) {
+            System.out.println("Enter a string of text: (Cancel with . or enter) ");
+            newString = scanner.nextLine();
+
+            if (newString.equals("") || newString.equals("."))
+                break;
+
+            if (entireString.isEmpty())
+                entireString = newString;
+            else
+                entireString += (" " + newString);
+        }
+        System.out.println(entireString);
+        
     }
 }
