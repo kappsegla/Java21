@@ -5,7 +5,7 @@ public class Chapter1 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task6();
+        task7();
     }
 
     public static void task2() {
@@ -40,8 +40,50 @@ public class Chapter1 {
     }
 
     private static void task6() {
+        System.out.println("Skriv ett tal");
+        int value1 = Integer.parseInt(scanner.nextLine());
+        System.out.println("Skriv ytterligare ett tal");
+        int value2 = Integer.parseInt(scanner.nextLine());
+        int sum = value1 + value2;
+        double meanValue = sum / 2.0;
+        System.out.println("Medelvärdet av dina tal blir " + meanValue);
 
+    /* Med double:
+        System.out.println("Skriv ett nummer:");
+        double firstNumber = Double.parseDouble(scanner.nextLine());
+
+        System.out.println("Skriv ett till nummer:");
+        double secondNumber = Double.parseDouble(scanner.nextLine());
+
+        double medel = (firstNumber + secondNumber)/2;
+
+        System.out.println("Medelvärdet av dessa nummer är: " + medel);
+    */
     }
 
+
+    private static void task7() {
+        System.out.println("Hur mycket pengar har du på ditt konto?: ");
+        double balance = Double.parseDouble(scanner.nextLine());
+
+        System.out.println("Vilken räntesats? (om räntan är 2% anger du 0.02): ");
+        double interestRate = Double.parseDouble(scanner.nextLine());
+
+        balance *= (interestRate + 1.0);
+        System.out.printf("Ditt nya saldo är: %.2f", balance);
+
+//        System.out.println("Hur mycket pengar har du på ditt bankkonto?");
+//        double value1 = Double.parseDouble(scanner.nextLine());
+//        System.out.println("Hur många procent ränta är det? Skriv som decimaltal");
+//        double value2 = Double.parseDouble(scanner.nextLine());
+//        double sum;
+//        if (value2 < 1) {
+//            sum = value1 * (value2 + 1);
+//        } else {
+//            sum = value1 * value2;
+//        }
+//        System.out.println("Ditt nya saldo blir " + sum + " efter ränta");
+
+    }
 }
 
