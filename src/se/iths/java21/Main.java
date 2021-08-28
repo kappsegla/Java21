@@ -30,6 +30,15 @@ public class Main {
             System.out.println("You must be a senior programmer.");
         else
             System.out.println("You are a junior programmer");
+
+        Box smallBox = new Box();
+        smallBox.length = 10;
+        smallBox.height = 5;
+        smallBox.width = 2;
+
+        System.out.println(smallBox);
+
+
     }
 
     public static void elseif() {
