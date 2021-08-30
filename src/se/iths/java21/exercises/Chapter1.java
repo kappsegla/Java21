@@ -1,5 +1,7 @@
 package se.iths.java21.exercises;
 
+import java.util.Scanner;
+
 public class Chapter1 {
 
     static Scanner scanner = new Scanner(System.in);
