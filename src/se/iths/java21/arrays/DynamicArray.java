@@ -10,6 +10,12 @@ public class DynamicArray {
         index = index + 1;
     }
 
+    int removeLast(){
+        int last = values[index-1];
+        index--;
+        return last;
+    }
+
     public static void main(String[] args) {
 
         DynamicArray dynamicArray = new DynamicArray();
