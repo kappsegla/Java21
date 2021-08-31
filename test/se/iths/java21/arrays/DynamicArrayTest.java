@@ -11,7 +11,7 @@ class DynamicArrayTest {
         DynamicArray dynamicArray = new DynamicArray();
         dynamicArray.add(1);
 
-        assertEquals(1, dynamicArray.values[0]);
+        assertEquals(1, dynamicArray.get(0));
     }
 
     @Test
@@ -20,10 +20,10 @@ class DynamicArrayTest {
         dynamicArray.add(1);
         dynamicArray.add(2);
 
-       // assertEquals(1, dynamicArray.values[0]);
-       // assertEquals(2, dynamicArray.values[1]);
-        int[] expected = {1,2,0,0,0,0,0,0,0,0};
-        assertArrayEquals(expected, dynamicArray.values);
+        assertEquals(1, dynamicArray.get(0));
+        assertEquals(2, dynamicArray.get(1));
+       // int[] expected = {1,2,0,0,0,0,0,0,0,0};
+       // assertArrayEquals(expected, dynamicArray.values);
     }
     @Test
     void removeLastReturnsLastAddedItem(){

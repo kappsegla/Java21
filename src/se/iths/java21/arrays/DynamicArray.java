@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DynamicArray {
 
-    int[] values = new int[10];
+    private int[] values = new int[10];
     private int count = 0;
 
     void add(int value) {
@@ -31,6 +31,10 @@ public class DynamicArray {
 
     int length() {
         return count;
+    }
+
+    public int get(int i) {
+        return values[i];
     }
 
     public static void main(String[] args) {
