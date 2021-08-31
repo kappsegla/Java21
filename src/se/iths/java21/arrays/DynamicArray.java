@@ -3,17 +3,21 @@ package se.iths.java21.arrays;
 public class DynamicArray {
 
     int[] values = new int[10];
-    int index = 0;
+    int count = 0;
 
     void add(int value){
-        values[index] = value;
-        index = index + 1;
+        values[count] = value;
+        count = count + 1;
     }
 
     int removeLast(){
-        int last = values[index-1];
-        index--;
-        return last;
+        if( count == 0)
+            return 0;
+        return values[--count];
+    }
+
+    int length() {
+        return count;
     }
 
     public static void main(String[] args) {
@@ -24,5 +28,4 @@ public class DynamicArray {
         for (int value: dynamicArray.values)
             System.out.println(value);
     }
-
 }

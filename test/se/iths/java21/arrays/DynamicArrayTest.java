@@ -34,7 +34,26 @@ class DynamicArrayTest {
         int returnedValue = dynamicArray.removeLast();
 
         assertEquals(2, returnedValue);
-        assertEquals(1, dynamicArray.index);
+        assertEquals(1, dynamicArray.count);
+    }
+    @Test
+    void callingRemoveLastOnEmptyArrayReturns0() {
+        DynamicArray dynamicArray = new DynamicArray();
+        int returnedValue = dynamicArray.removeLast();
+        assertEquals(0,returnedValue);
+    }
+
+    @Test
+    void addingThreeItemsShouldReturnLengtThree() {
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.add(1);
+        dynamicArray.add(2);
+        dynamicArray.add(3);
+
+        int result = dynamicArray.length();
+        assertEquals(3, result);
+
+
     }
 
 }
