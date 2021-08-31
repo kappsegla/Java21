@@ -3,7 +3,7 @@ package se.iths.java21.arrays;
 public class DynamicArray {
 
     int[] values = new int[10];
-    int count = 0;
+    private int count = 0;
 
     void add(int value){
         values[count] = value;
