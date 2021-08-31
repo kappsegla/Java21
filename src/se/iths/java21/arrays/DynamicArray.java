@@ -37,6 +37,10 @@ public class DynamicArray {
         return values[i];
     }
 
+    public int[] get() {
+        return values;
+    }
+
     public static void main(String[] args) {
 
         DynamicArray dynamicArray = new DynamicArray();

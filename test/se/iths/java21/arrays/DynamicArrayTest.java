@@ -22,8 +22,8 @@ class DynamicArrayTest {
 
         assertEquals(1, dynamicArray.get(0));
         assertEquals(2, dynamicArray.get(1));
-       // int[] expected = {1,2,0,0,0,0,0,0,0,0};
-       // assertArrayEquals(expected, dynamicArray.values);
+        int[] expected = {1,2,0,0,0,0,0,0,0,0};
+        assertArrayEquals(expected, dynamicArray.get());
     }
     @Test
     void removeLastReturnsLastAddedItem(){
