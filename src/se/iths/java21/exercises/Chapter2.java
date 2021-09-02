@@ -1,6 +1,5 @@
 package se.iths.java21.exercises;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Chapter2 {
