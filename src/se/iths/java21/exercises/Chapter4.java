@@ -1,6 +1,7 @@
 package se.iths.java21.exercises;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.*;
 
@@ -8,7 +9,34 @@ public class Chapter4 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task2();
+        task3();
+    }
+
+    private static void task3() {
+        int[] numbers = new int[5];
+        int largest = Integer.MIN_VALUE;
+        int least = Integer.MAX_VALUE;
+        int odds = 0;
+
+        Random random = new Random();
+
+        for (int i = 0; i < numbers.length; i++) {
+            // need better random
+            numbers[i] = random.nextInt();
+
+            if (numbers[i] % 2 != 0)
+                odds++;
+            if (numbers[i] > largest)
+                largest = numbers[i];
+            if (numbers[i] < least)
+                least = numbers[i];
+        }
+        for (int number : numbers) {
+            System.out.println(number + " ");
+        }
+        System.out.println("Största talet är: " + largest);
+        System.out.println("Det minsta talet är " + least);
+        System.out.println("Det fanns " + odds + " udda tal.");
     }
 
     private static void task2() {
