@@ -1,5 +1,6 @@
 package se.iths.java21.exercises;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.Scanner;
@@ -8,7 +9,19 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-       task8();
+       task9();
+    }
+
+    private static void task9() {
+        System.out.println(daysBetween("2000-02-01", "2000-03-01"));
+    }
+
+    private static int daysBetween(String date1, String  date2) {
+        LocalDate localDate2 = LocalDate.parse(date1, DateTimeFormatter.ISO_LOCAL_DATE);
+        LocalDate localDate1 = LocalDate.parse(date2, DateTimeFormatter.ISO_LOCAL_DATE);
+        int days = 0;
+        days = (int) ChronoUnit.DAYS.between(localDate1, localDate2);
+        return Math.abs(days);
     }
 
     private static void task8() {
@@ -16,11 +29,11 @@ public class Chapter5 {
     }
 
     public static int year(String date){
-//        LocalDateTime dateTime = LocalDateTime.parse(date+"T00:00:00");
-//        return dateTime.getYear();
+//        LocalDate parsedDate = LocalDate.parse(date);
+//        return parsedDate.getYear();
         if( date.length() != 10)
             throw new IllegalArgumentException();
-        
+
         return Integer.parseInt(date.substring(0,4));
     }
 
