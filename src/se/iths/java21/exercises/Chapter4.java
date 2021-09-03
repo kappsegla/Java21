@@ -2,6 +2,7 @@ package se.iths.java21.exercises;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.*;
 
 public class Chapter4 {
     static Scanner scanner = new Scanner(System.in);
