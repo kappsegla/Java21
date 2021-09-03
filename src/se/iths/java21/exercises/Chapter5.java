@@ -13,8 +13,7 @@ public class Chapter5 {
     }
 
     private static void task12() {
-        System.out.println(reverseString("Hejsan"));
-
+        System.out.println(returnStringReversed("Hejsan"));
     }
 
     private static void task11() {
