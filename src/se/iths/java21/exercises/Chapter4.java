@@ -12,20 +12,20 @@ public class Chapter4 {
 
     private static void task4() {
         System.out.println("Skriv ett tal");
-        int length = scanner.nextInt();
+        final int length = scanner.nextInt();
         int[] newArray = new int[length];
         int sum = 0;
 
         Random random = new Random();
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < newArray.length; i++) {
             int value = random.nextInt(100);
             newArray[i] = value;
             sum += value;
             System.out.println(value);
         }
 
-        double average = (double) sum / length;
+        double average = (double) sum / newArray.length;
 
         System.out.printf("Medelvärdet är %.2f", average);
 
