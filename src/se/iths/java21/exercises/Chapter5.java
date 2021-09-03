@@ -9,11 +9,41 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-       task10();
+       task11();
     }
 
+    private static void task11() {
+        System.out.println(sumOfNumbers());
+        System.out.println(sumOfNumbers(100));
+    }
+
+    private static int sumOfNumbers() {
+        int sum = 0;
+        int count = 1;
+
+        while (count <= 100) {
+            sum+=count;
+            ++count;
+        }
+
+        return sum;
+    }
+
+    private static int sumOfNumbers(int limit) {
+        int sum = 0;
+        int count = 1;
+
+        while (count <= limit) {
+            sum+=count;
+            ++count;
+        }
+
+        return sum;
+    }
+
+
     private static void task10() {
-        System.out.println(tempConvert(98.1));
+        System.out.println(tempConvert(98.6));
     }
 
     private static double tempConvert(double fahrenheit) {
