@@ -1,12 +1,28 @@
 package se.iths.java21.exercises;
 
+import java.time.LocalDateTime;
+import java.time.Year;
 import java.util.Scanner;
 
 public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task6();
+       task8();
+    }
+
+    private static void task8() {
+        System.out.println(year("1998-07-28"));
+    }
+
+    public static int year(String date){
+//        LocalDateTime dateTime = LocalDateTime.parse(date+"T00:00:00");
+//        return dateTime.getYear();
+        return Integer.parseInt(date.substring(0,4));
+    }
+
+    private static String task7(String word) {
+        return word.substring(0, 3);
     }
 
     private static void task6() {
@@ -35,6 +51,13 @@ public class Chapter5 {
             case nov -> 30;
             case dec -> 31;
         };
+    }
+
+
+    private static int leapYear() {
+        if( Year.now().isLeap() )
+            return 29;
+        return 28;
     }
 
     private static void task5() {
