@@ -1,15 +1,34 @@
 package se.iths.java21.exercises;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.stream.*;
 
 public class Chapter4 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task3();
+        task4();
+    }
+
+    private static void task4() {
+        System.out.println("Skriv ett tal");
+        int length = scanner.nextInt();
+        int[] newArray = new int[length];
+        int sum = 0;
+
+        Random random = new Random();
+
+        for (int i = 0; i < length; i++) {
+            int value = random.nextInt(100);
+            newArray[i] = value;
+            sum += value;
+            System.out.println(value);
+        }
+
+        double average = (double) sum / length;
+
+        System.out.printf("Medelvärdet är %.2f", average);
+
     }
 
     private static void task3() {
@@ -21,7 +40,6 @@ public class Chapter4 {
         Random random = new Random();
 
         for (int i = 0; i < numbers.length; i++) {
-            // need better random
             numbers[i] = random.nextInt();
 
             if (numbers[i] % 2 != 0)
