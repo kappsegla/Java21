@@ -6,7 +6,35 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task5();
+        task6();
+    }
+
+    private static void task6() {
+        System.out.println(Month.jun);
+        System.out.println(Month.jun.ordinal());
+
+        Month input = Month.valueOf(scanner.next().toLowerCase().substring(0,3));
+        System.out.println(input);
+        System.out.println(daysInMonth(Month.JAN));
+        if( input == Month.JAN)
+            System.out.println("This is a cold month");
+    }
+
+    private static int daysInMonth(Month getDays) {
+        return switch (getDays) {
+            case JAN -> 31;
+            case feb -> 28;
+            case mar -> 31;
+            case apr -> 30;
+            case maj -> 31;
+            case jun -> 30;
+            case jul -> 31;
+            case aug -> 30;
+            case sept -> 30;
+            case okt -> 31;
+            case nov -> 30;
+            case dec -> 31;
+        };
     }
 
     private static void task5() {
@@ -19,7 +47,7 @@ public class Chapter5 {
     }
 
     private static int task4(String text) {
-            return Integer.parseInt(text);
+        return Integer.parseInt(text);
     }
 
     private static void task3() {
