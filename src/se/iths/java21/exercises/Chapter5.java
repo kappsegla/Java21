@@ -15,6 +15,14 @@ public class Chapter5 {
     private static void task11() {
         System.out.println(sumOfNumbers());
         System.out.println(sumOfNumbers(100));
+        System.out.println(sumOfNumbersRecursive(100));
+    }
+
+    private static int sumOfNumbersRecursive(int limit) {
+        if( limit == 0)
+            return 0;
+        else
+            return limit + sumOfNumbersRecursive(limit - 1);
     }
 
     private static int sumOfNumbers() {
