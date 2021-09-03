@@ -6,7 +6,20 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task3();
+        task5();
+    }
+
+    private static void task5() {
+        System.out.println(paragraph("Hej"));
+    }
+
+    private static String paragraph(String s) {
+        String sTagged = "<p>" + s + "</p>";
+        return sTagged;
+    }
+
+    private static int task4(String text) {
+            return Integer.parseInt(text);
     }
 
     private static void task3() {
