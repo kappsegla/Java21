@@ -9,7 +9,12 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-       task11();
+        task12();
+    }
+
+    private static void task12() {
+        System.out.println(reverseString("Hejsan"));
+
     }
 
     private static void task11() {
