@@ -9,7 +9,15 @@ public class Chapter5 {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-       task9();
+       task10();
+    }
+
+    private static void task10() {
+        System.out.println(tempConvert(98.1));
+    }
+
+    private static double tempConvert(double fahrenheit) {
+        return (fahrenheit-32) * 5 / 9;
     }
 
     private static void task9() {
