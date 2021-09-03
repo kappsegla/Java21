@@ -18,6 +18,9 @@ public class Chapter5 {
     public static int year(String date){
 //        LocalDateTime dateTime = LocalDateTime.parse(date+"T00:00:00");
 //        return dateTime.getYear();
+        if( date.length() != 10)
+            throw new IllegalArgumentException();
+        
         return Integer.parseInt(date.substring(0,4));
     }
 
