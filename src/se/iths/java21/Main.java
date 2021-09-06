@@ -1,5 +1,7 @@
 package se.iths.java21;
 
+import se.iths.java21.objects.Box;
+
 import java.util.Scanner;
 
 public class Main {
@@ -32,9 +34,9 @@ public class Main {
             System.out.println("You are a junior programmer");
 
         Box smallBox = new Box();
-        smallBox.length = 10;
-        smallBox.height = 5;
-        smallBox.width = 2;
+       // smallBox.length = 10;
+       // smallBox.height = 5;
+       // smallBox.width = 2;
 
         System.out.println(smallBox);
 

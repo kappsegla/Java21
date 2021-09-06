@@ -1,7 +1,7 @@
 package se.iths.java21.arrays;
 
 
-import se.iths.java21.Box;
+import se.iths.java21.objects.Box;
 
 public class ComplexArrayDemo {
     public static void main(String[] args) {
@@ -11,9 +11,9 @@ public class ComplexArrayDemo {
             boxes[i] = new Box();
 
             //if( boxes[i] != null)  //If the reference is null don't use it.
-                boxes[i].width = 10 * (i +1);
+            boxes[i].setWidth(10 * (i + 1));
 
-            System.out.println(boxes[i].width);
+            System.out.println(boxes[i].getWidth());
         }
     }
 }
