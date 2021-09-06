@@ -1,8 +1,9 @@
 package se.iths.java21.exercises;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Chapter5 {
@@ -14,6 +15,10 @@ public class Chapter5 {
 
     private static void task12() {
         System.out.println(returnStringReversed("Hejsan"));
+    }
+
+    private static String returnStringReversed(String inputString) {
+        return new StringBuilder(inputString).reverse().toString();
     }
 
     private static void task11() {
@@ -91,20 +96,26 @@ public class Chapter5 {
         return word.substring(0, 3);
     }
 
+
+
     private static void task6() {
         System.out.println(Month.jun);
         System.out.println(Month.jun.ordinal());
 
         Month input = Month.valueOf(scanner.next().toLowerCase().substring(0,3));
         System.out.println(input);
-        System.out.println(daysInMonth(Month.JAN));
-        if( input == Month.JAN)
+        System.out.println(daysInMonth(Month.jan));
+        if( input == Month.jan)
             System.out.println("This is a cold month");
+    }
+
+    enum Month{
+        jan,feb,mar,apr,maj,jun,jul,aug,sep,okt,nov,dec
     }
 
     private static int daysInMonth(Month getDays) {
         return switch (getDays) {
-            case JAN -> 31;
+            case jan -> 31;
             case feb -> 28;
             case mar -> 31;
             case apr -> 30;
@@ -112,7 +123,7 @@ public class Chapter5 {
             case jun -> 30;
             case jul -> 31;
             case aug -> 30;
-            case sept -> 30;
+            case sep -> 30;
             case okt -> 31;
             case nov -> 30;
             case dec -> 31;
@@ -131,8 +142,7 @@ public class Chapter5 {
     }
 
     private static String paragraph(String s) {
-        String sTagged = "<p>" + s + "</p>";
-        return sTagged;
+        return "<p>" + s + "</p>";
     }
 
     private static int task4(String text) {
