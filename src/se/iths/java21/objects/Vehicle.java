@@ -23,6 +23,12 @@ public class Vehicle {
         this.awd = awd;
     }
 
+    public Vehicle(int passengers, int fuelCap, float kmPerLiter) {
+        this.passengers = passengers;
+        this.fuelCap = fuelCap;
+        this.kmPerLiter = kmPerLiter;
+    }
+
     /**
      * Returns the current maximum calculated distance this Vehicle can travel.
      * @return Maximum distance in km.

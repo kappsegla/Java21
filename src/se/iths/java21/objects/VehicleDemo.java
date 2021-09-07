@@ -10,6 +10,5 @@ public class VehicleDemo {
         System.out.println(vehicle2.computeRange());
         System.out.printf("Computed range %.2f for this vehicle.%n",vehicle1.computeRange());
 
-
     }
 }
