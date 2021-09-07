@@ -40,4 +40,15 @@ public class Point {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+    public static Point createPoint(){
+        return new Point(0,0);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
