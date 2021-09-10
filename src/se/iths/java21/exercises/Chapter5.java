@@ -14,7 +14,7 @@ public class Chapter5 {
     }
 
     private static void task12() {
-        System.out.println(returnStringReversed("Hejsan"));
+        System.out.println(returnStringReversedShort("Hejsan"));
     }
 
     private static String returnStringReversedShort(String inputString) {
@@ -102,8 +102,8 @@ public class Chapter5 {
 
         Month input = Month.valueOf(scanner.next().toLowerCase().substring(0,3));
         System.out.println(input);
-        System.out.println(daysInMonth(Month.jan));
-        if( input == Month.jan)
+        System.out.println(daysInMonth(Month.JAN));
+        if( input == Month.JAN)
             System.out.println("This is a cold month");
     }
 
@@ -114,6 +114,8 @@ public class Chapter5 {
             case APR, JUN, AUG, SEP, NOV -> 30;
         };
     }
+
+    enum Month {JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OKT,NOV,DEC}
 
 
     private static int leapYear() {
