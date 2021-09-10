@@ -17,7 +17,7 @@ public class Chapter5 {
         System.out.println(returnStringReversed("Hejsan"));
     }
 
-    private static String returnStringReversed(String inputString) {
+    private static String returnStringReversedShort(String inputString) {
         return new StringBuilder(inputString).reverse().toString();
     }
 
@@ -96,11 +96,9 @@ public class Chapter5 {
         return word.substring(0, 3);
     }
 
-
-
     private static void task6() {
-        System.out.println(Month.jun);
-        System.out.println(Month.jun.ordinal());
+        System.out.println(Month.JUN);
+        System.out.println(Month.JUN.ordinal());
 
         Month input = Month.valueOf(scanner.next().toLowerCase().substring(0,3));
         System.out.println(input);
@@ -109,24 +107,11 @@ public class Chapter5 {
             System.out.println("This is a cold month");
     }
 
-    enum Month{
-        jan,feb,mar,apr,maj,jun,jul,aug,sep,okt,nov,dec
-    }
-
-    private static int daysInMonth(Month getDays) {
-        return switch (getDays) {
-            case jan -> 31;
-            case feb -> 28;
-            case mar -> 31;
-            case apr -> 30;
-            case maj -> 31;
-            case jun -> 30;
-            case jul -> 31;
-            case aug -> 30;
-            case sep -> 30;
-            case okt -> 31;
-            case nov -> 30;
-            case dec -> 31;
+    private static int daysInMonth(Month month) {
+        return switch (month) {
+            case JAN, MAR, MAY, JUL, OKT, DEC -> 31;
+            case FEB -> leapYear();
+            case APR, JUN, AUG, SEP, NOV -> 30;
         };
     }
 
