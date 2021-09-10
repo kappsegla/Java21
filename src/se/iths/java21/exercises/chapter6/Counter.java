@@ -19,6 +19,7 @@ public class Counter {
     public static void main(String[] args) {
         Counter counter = new Counter();
         Counter counter2 = new Counter();
+        Counter counter3 = new Counter();
         counter.increase();
         counter.increase();
         System.out.println(counter.value());
