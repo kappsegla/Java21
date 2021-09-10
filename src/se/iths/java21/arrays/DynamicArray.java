@@ -1,7 +1,5 @@
 package se.iths.java21.arrays;
 
-import java.util.ArrayList;
-
 public class DynamicArray {
 
     private int[] values = new int[10];

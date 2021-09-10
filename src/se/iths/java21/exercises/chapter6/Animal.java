@@ -18,7 +18,6 @@ class Bird extends Animal{
 }
 class Mammal extends Animal{
 
-
 }
 class Salmon extends Fish{
 
