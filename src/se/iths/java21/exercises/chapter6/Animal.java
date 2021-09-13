@@ -7,11 +7,33 @@ public class Animal{
         Animal el2 = new Elephant();
         Mammal el3 = new Elephant();
         Elephant el4 = new Elephant();
+
+        Animal animal = new Animal();
+        Fish fish = new Fish();
+        Animal animal1 = fish;
+
+        animal.demo();
+        fish.demo();
+        animal1.demo();
+
     }
+
+    public int test(){
+        return 0;
+    }
+
+    public void demo(){
+        System.out.println("Demo in Animal");
+
+    }
+
 }
 
 class Fish extends Animal{
 
+    public void demo() {
+        System.out.println("Demo in Fish");
+    }
 }
 class Bird extends Animal{
 
