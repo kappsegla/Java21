@@ -57,13 +57,11 @@ final class Cat extends Mammal implements Pet {
 }
 
 class Dog extends Mammal{
-
     @Override
     String talk() {
         return "Voff";
     }
 }
-
 
 @FunctionalInterface
 interface Pet {
