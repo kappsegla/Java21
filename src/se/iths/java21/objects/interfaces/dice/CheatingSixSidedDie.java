@@ -1,18 +1,14 @@
 package se.iths.java21.objects.interfaces.dice;
 
-public class CheatingSixSidedDie implements Die{
+public class CheatingSixSidedDie extends SuperDie{
+
+    public CheatingSixSidedDie() {
+        super(6);
+        currentSide = 6;
+    }
+
     @Override
     public void roll() {
 
-    }
-
-    @Override
-    public int value() {
-        return 6;
-    }
-
-    @Override
-    public int numberOfSides() {
-        return 6;
     }
 }
