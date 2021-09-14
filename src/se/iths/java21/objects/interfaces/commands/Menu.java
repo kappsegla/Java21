@@ -16,7 +16,11 @@ public class Menu {
             }
         };
         commands[3] = () -> System.out.println("Moose");
-        commands[0] = () -> System.out.print("");
+        commands[0] = this::shutdown;
+    }
+
+    public void shutdown(){
+        System.exit(0);
     }
 
     public static void main(String[] args) {
