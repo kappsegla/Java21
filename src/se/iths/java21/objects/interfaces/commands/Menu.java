@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Menu {
     private final Scanner scanner = new Scanner(System.in);
-    private final Command com1;
-    private final Command com2;
-    private final Command com3;
+
+    private final Command[] commands = new Command[4];
 
     public Menu() {
-        com1 = new NameCommand();
-        com2 = new Command() {
+        commands[1] = new NameCommand();
+        commands[2] = new Command() {
             @Override
             public void execute() {
                 System.out.println(Math.random());
             }
         };
-        com3 = () -> System.out.println("Moose");
+        commands[3] = () -> System.out.println("Moose");
+        commands[0] = () -> System.out.print("");
     }
 
     public static void main(String[] args) {
@@ -34,12 +34,7 @@ public class Menu {
     }
 
     private void executeChoice(int choice) {
-        switch (choice) {
-            case 1 -> com1.execute();
-            case 2 -> com2.execute();
-            case 3 -> com3.execute();
-            default -> System.out.print("");
-        }
+        commands[choice].execute();
     }
 
     private int readChoice(Scanner scanner) {
