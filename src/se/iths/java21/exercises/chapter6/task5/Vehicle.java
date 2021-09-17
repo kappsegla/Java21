@@ -31,20 +31,17 @@ abstract public class Vehicle {
     }
 
     static void checkInstanceOf(Vehicle vehicle) {
-        if (vehicle instanceof Car)
-            ((Car) vehicle).burnOut(10);
-        else if (vehicle instanceof Bicycle)
-            ((Bicycle) vehicle).ringBell();
-        else if (vehicle instanceof Boat)
-            ((Boat) vehicle).startBoat();
-        else if (vehicle instanceof Motorboat)
-            ((Motorboat) vehicle).startEngine();
-        else if (vehicle instanceof Sail)
-            ((Sail) vehicle).raiseSail();
-
+        if (vehicle instanceof Car theCar)
+            theCar.burnOut(10);
+        else if (vehicle instanceof Bicycle bicycle)
+            bicycle.ringBell();
+        else if (vehicle instanceof Boat boat)
+            boat.startBoat();
+        else if (vehicle instanceof Motorboat theMotorboat)
+            theMotorboat.startEngine();
+        else if (vehicle instanceof Sail sailBoat)
+            sailBoat.raiseSail();
     }
-
-
 }
 
 class Bicycle extends Vehicle {
