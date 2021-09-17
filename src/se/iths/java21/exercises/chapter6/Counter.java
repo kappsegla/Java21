@@ -4,7 +4,6 @@ public class Counter {
     private static int noOfObjects;
     private int counter;
 
-
     public Counter() {
         noOfObjects++;
     }

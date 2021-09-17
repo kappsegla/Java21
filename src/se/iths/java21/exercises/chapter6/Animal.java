@@ -16,6 +16,11 @@ public class Animal{
         fish.demo();
         animal1.demo();
 
+        NoiseMaker noiseMaker = new Woodpecker();
+        noiseMaker.makeNoise();
+
+        NoiseMaker noiseMaker1 = new Robot();
+        noiseMaker1.makeNoise();
     }
 
     public int test(){
@@ -44,10 +49,18 @@ class Mammal extends Animal{
 class Salmon extends Fish{
 
 }
-class Woodpecker extends Bird{
+class Woodpecker extends Bird implements NoiseMaker{
 
+    @Override
+    public void makeNoise() {
+        System.out.println("drum drum");
+    }
 }
-class Elephant extends Mammal{
 
+class Elephant extends Mammal implements NoiseMaker{
+    @Override
+    public void makeNoise() {
+        System.out.println("trumpeter");
+    }
 }
 
