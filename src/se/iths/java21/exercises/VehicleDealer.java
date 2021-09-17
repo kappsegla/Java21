@@ -10,10 +10,9 @@ public class VehicleDealer {
     public static void main(String[] args) {
 
         //Change money from float to BigDecimal
-        Buyer buyer1, buyer2, buyer3;
-        buyer1 = new Buyer("Martin", 44, "Teacher", 1000_000_000);
-        buyer2 = new Buyer("Albin", 12, "Pilot", 100);
-        buyer3 = new Buyer("Vimbay", 21, "Progammer", 350000);
+        Buyer buyer1 = new Buyer("Martin", 44, "Teacher", 1000_000_000);
+        Buyer buyer2 = new Buyer("Albin", 12, "Pilot", 100);
+        var buyer3 = new Buyer("Vimbay", 21, "Progammer", 350000);
 
         Seller seller1, seller2;
         seller1 = new Seller("Greger", 102, "Retired", 500);
