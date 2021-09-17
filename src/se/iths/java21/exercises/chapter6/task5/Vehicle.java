@@ -31,6 +31,11 @@ abstract public class Vehicle {
     }
 
     static void checkInstanceOf(Vehicle vehicle) {
+//      Needs java 17
+//        switch(vehicle) {
+//            case Car car -> car.burnOut(10);
+//
+//        }
         if (vehicle instanceof Car theCar)
             theCar.burnOut(10);
         else if (vehicle instanceof Bicycle bicycle)
