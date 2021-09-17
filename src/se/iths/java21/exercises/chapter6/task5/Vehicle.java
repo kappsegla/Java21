@@ -21,7 +21,30 @@ abstract public class Vehicle {
         car.goTo("Malmö");
         motorboat.goTo("Vrångö");
         sail.goTo("Koster");
+
+        checkInstanceOf(bicycle);
+        checkInstanceOf(boat);
+        checkInstanceOf(car);
+        checkInstanceOf(motorboat);
+        checkInstanceOf(sail);
+
     }
+
+    static void checkInstanceOf(Vehicle vehicle) {
+        if (vehicle instanceof Car)
+            ((Car) vehicle).burnOut(10);
+        else if (vehicle instanceof Bicycle)
+            ((Bicycle) vehicle).ringBell();
+        else if (vehicle instanceof Boat)
+            ((Boat) vehicle).startBoat();
+        else if (vehicle instanceof Motorboat)
+            ((Motorboat) vehicle).startEngine();
+        else if (vehicle instanceof Sail)
+            ((Sail) vehicle).raiseSail();
+
+    }
+
+
 }
 
 class Bicycle extends Vehicle {
@@ -38,14 +61,18 @@ class Boat extends Vehicle {
     }
 }
 
-class Car extends  Vehicle {
+class Car extends Vehicle {
     @Override
     public void goTo(String destination) {
         System.out.println("Färdas med bil till " + destination);
     }
+
+    public void burnOut(int seconds) {
+        System.out.println("Spinning the wheels for " + seconds + " seconds.");
+    }
 }
 
-class  Motorboat extends Vehicle {
+class Motorboat extends Vehicle {
     @Override
     public void goTo(String destination) {
         System.out.println("Färdas med motorbåt till " + destination);
