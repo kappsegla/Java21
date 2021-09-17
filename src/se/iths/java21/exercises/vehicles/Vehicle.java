@@ -33,4 +33,12 @@ public abstract class Vehicle {
         return owner;
     }
 
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName()+"{" +
+                "weight=" + weight +
+                ", price=" + price +
+                ", owner=" + owner +
+                '}';
+    }
 }

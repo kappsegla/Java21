@@ -45,5 +45,14 @@ public abstract class Person {
         this.money -= money;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() +
+                "{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", work='" + work + '\'' +
+                ", money=" + money +
+                '}';
+    }
 }
