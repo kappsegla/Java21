@@ -19,6 +19,7 @@ public class Sorting {
         System.out.println("===Sorted===");
         // houses.sort((o1, o2) -> o1.getRooms() - o2.getRooms() );
         // houses.sort(Comparator.comparingInt(House::getRooms));
+        // houses.sort(Comparator.comparingInt(House::getRooms).reversed());
         houses.sort(Comparator.comparingInt(House::getRooms).thenComparingInt(House::getPrice));
 
         houses.forEach(System.out::println);
