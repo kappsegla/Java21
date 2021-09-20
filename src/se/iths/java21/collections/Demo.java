@@ -2,10 +2,7 @@ package se.iths.java21.collections;
 
 import com.sun.source.doctree.SeeTree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 public class Demo {
     public static void main(String[] args) {
@@ -39,8 +36,13 @@ public class Demo {
 
         var set = Set.copyOf(integerList);
 
-        set.forEach(System.out::println);
+        Set<Integer> integers = new HashSet<>();
 
-
+        integers.add(1);
+        integers.add(10);
+        integers.add(4);
+      //  integers.forEach(System.out::println);
+        integers.add(5);
+       // integers.forEach(System.out::println);
     }
 }
