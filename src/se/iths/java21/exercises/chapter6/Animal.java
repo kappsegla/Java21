@@ -64,3 +64,10 @@ class Elephant extends Mammal implements NoiseMaker{
     }
 }
 
+class Robot implements NoiseMaker {
+
+    @Override
+    public void makeNoise() {
+        System.out.println("Robot making noise");
+    }
+}

@@ -54,12 +54,18 @@ class Bicycle extends Vehicle {
     public void goTo(String destination) {
         System.out.println("Färdas med cykel till " + destination);
     }
+
+    public void ringBell() {
+    }
 }
 
 class Boat extends Vehicle {
     @Override
     public void goTo(String destination) {
         System.out.println("Färdas med båt till " + destination);
+    }
+
+    public void startBoat() {
     }
 }
 
@@ -79,11 +85,16 @@ class Motorboat extends Vehicle {
     public void goTo(String destination) {
         System.out.println("Färdas med motorbåt till " + destination);
     }
+    
+    public void startEngine(){}
 }
 
 class Sail extends Vehicle {
     @Override
     public void goTo(String destination) {
         System.out.println("Färdas med segelbåt till " + destination);
+    }
+
+    public void raiseSail() {
     }
 }
