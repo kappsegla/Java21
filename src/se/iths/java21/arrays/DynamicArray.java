@@ -1,6 +1,8 @@
 package se.iths.java21.arrays;
 
-public class DynamicArray {
+import java.util.Iterator;
+
+public class DynamicArray implements Iterable<Integer>{
 
     private int[] values = new int[10];
     private int count = 0;
@@ -44,7 +46,38 @@ public class DynamicArray {
         DynamicArray dynamicArray = new DynamicArray();
         dynamicArray.add(1);
         dynamicArray.add(2);
-        for (int value : dynamicArray.values)
+        for (int value : dynamicArray)
             System.out.println(value);
+
+        //Enhanced for-loop uses iterator
+        Iterator<Integer> iterator = dynamicArray.iterator();
+
+        while( iterator.hasNext() ) {
+            int value = iterator.next();
+            System.out.println(value);
+        }
+
     }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new DynamicArrayIterator();
+    }
+
+    class DynamicArrayIterator implements Iterator<Integer>{
+
+        private int position = 0;
+
+        @Override
+        public boolean hasNext() {
+            return position < count;
+        }
+
+        @Override
+        public Integer next() {
+            return values[position++];
+        }
+    }
+
+
 }

@@ -1,9 +1,8 @@
 package se.iths.java21.collections;
 
-
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Sorting {
@@ -15,7 +14,12 @@ public class Sorting {
         houses.add(new House(2, 1000000));
         houses.add(new House(2, 50000));
 
-        houses.forEach(System.out::println);
+        //houses.forEach(System.out::println);
+        for( var house : houses) {
+            System.out.println(house);
+        }
+
+
         System.out.println("===Sorted===");
         // houses.sort((o1, o2) -> o1.getRooms() - o2.getRooms() );
         // houses.sort(Comparator.comparingInt(House::getRooms));
