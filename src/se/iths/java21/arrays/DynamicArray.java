@@ -1,8 +1,9 @@
 package se.iths.java21.arrays;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class DynamicArray implements Iterable<Integer>{
+public class DynamicArray implements Iterable<Integer> {
 
     private int[] values = new int[10];
     private int count = 0;
@@ -49,14 +50,20 @@ public class DynamicArray implements Iterable<Integer>{
         for (int value : dynamicArray)
             System.out.println(value);
 
+            loopWithRiskOfException(dynamicArray);
+
+
+         }
+
+    private static void loopWithRiskOfException(DynamicArray dynamicArray)  {
         //Enhanced for-loop uses iterator
         Iterator<Integer> iterator = dynamicArray.iterator();
 
-        while( iterator.hasNext() ) {
+        while (iterator.hasNext()) {
             int value = iterator.next();
             System.out.println(value);
         }
-
+        throw new RuntimeException();
     }
 
     @Override
@@ -64,7 +71,7 @@ public class DynamicArray implements Iterable<Integer>{
         return new DynamicArrayIterator();
     }
 
-    class DynamicArrayIterator implements Iterator<Integer>{
+    class DynamicArrayIterator implements Iterator<Integer> {
 
         private int position = 0;
 
@@ -75,6 +82,8 @@ public class DynamicArray implements Iterable<Integer>{
 
         @Override
         public Integer next() {
+            if (position >= count)
+                throw new NoSuchElementException("Iterator next outside limits");
             return values[position++];
         }
     }
