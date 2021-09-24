@@ -12,5 +12,6 @@ public class RandomDoubleValues {
         }
 
         randomNumbers.forEach((v) -> System.out.printf("%.2f%n", v));
+
     }
 }
