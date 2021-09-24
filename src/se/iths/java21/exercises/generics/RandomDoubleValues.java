@@ -10,7 +10,6 @@ public class RandomDoubleValues {
         for (int i = 0; i < 10; i++) {
             randomNumbers.add(Math.random() * 100);
         }
-
         randomNumbers.forEach((v) -> System.out.printf("%.2f%n", v));
 
     }

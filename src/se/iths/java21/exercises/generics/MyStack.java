@@ -2,6 +2,7 @@ package se.iths.java21.exercises.generics;
 
 public class MyStack<T> {
     private Node<T> head;
+    private int counter;
 
     public void push(T obj) {
         Node<T> node = new Node<>();
@@ -21,12 +22,18 @@ public class MyStack<T> {
             throw new IllegalStateException();
         var temp = head.data;
         head = head.next;
+        counter--;
         return temp;
     }
 
     public T peek(){
         return null;
     }
+
+    public int size() {
+        return counter;
+    }
+
 }
 
 class Node<T> {
