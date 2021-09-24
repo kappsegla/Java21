@@ -1,6 +1,11 @@
 package se.iths.java21.exercises.generics;
 
-public class MyDeque<T> {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
+import java.util.function.Consumer;
+
+public class MyDeque<T> implements Iterable<T> {
     private DNode<T> head;
     private DNode<T> tail;
     private int counter;
@@ -43,20 +48,26 @@ public class MyDeque<T> {
         return counter;
     }
 
-    public void forEach() {
+    @NotNull
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    public void forEach(Consumer<? super T> consumer) {
         var temp = head;
 
         while (temp != null) {
-            System.out.println(temp.data);
+            consumer.accept(temp.data);
             temp = temp.next;
         }
     }
 
-    public void forEachDesc() {
+    public void forEachDesc(Consumer<? super T> consumer) {
         var temp = tail;
 
         while (temp != null) {
-            System.out.println(temp.data);
+            consumer.accept(temp.data);
             temp = temp.prev;
         }
     }
