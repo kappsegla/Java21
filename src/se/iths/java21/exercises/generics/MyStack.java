@@ -26,8 +26,8 @@ public class MyStack<T> {
         return temp;
     }
 
-    public T peek(){
-        return null;
+    public T peek() {
+        return head.data;
     }
 
     public int size() {
