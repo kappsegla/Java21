@@ -41,8 +41,13 @@ public abstract class Person {
         this.money += money;
     }
 
-    public void removeMoney(float money) {
-        this.money -= money;
+    public boolean removeMoney(float money) {
+        boolean success = false;
+        if (money <= getMoney()) {
+            this.money -= money;
+            success = true;
+        }
+        return success;
     }
 
     @Override

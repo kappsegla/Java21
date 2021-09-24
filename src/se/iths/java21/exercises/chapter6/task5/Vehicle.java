@@ -56,6 +56,7 @@ class Bicycle extends Vehicle {
     }
 
     public void ringBell() {
+        System.out.println("Pling Pling");
     }
 }
 
