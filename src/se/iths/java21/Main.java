@@ -2,6 +2,7 @@ package se.iths.java21;
 
 import se.iths.java21.objects.Box;
 
+import java.util.Dictionary;
 import java.util.Scanner;
 
 public class Main {

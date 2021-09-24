@@ -1,4 +1,6 @@
-package se.iths.java21.exercises.chapter6;
+package se.iths.java21.exercises.chapter6.animals;
+
+import se.iths.java21.exercises.chapter6.NoiseMaker;
 
 public class Animal{
 
@@ -34,40 +36,3 @@ public class Animal{
 
 }
 
-class Fish extends Animal{
-
-    public void demo() {
-        System.out.println("Demo in Fish");
-    }
-}
-class Bird extends Animal{
-
-}
-class Mammal extends Animal{
-
-}
-class Salmon extends Fish{
-
-}
-class Woodpecker extends Bird implements NoiseMaker{
-
-    @Override
-    public void makeNoise() {
-        System.out.println("drum drum");
-    }
-}
-
-class Elephant extends Mammal implements NoiseMaker{
-    @Override
-    public void makeNoise() {
-        System.out.println("trumpeter");
-    }
-}
-
-class Robot implements NoiseMaker {
-
-    @Override
-    public void makeNoise() {
-        System.out.println("Robot making noise");
-    }
-}
