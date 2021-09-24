@@ -66,6 +66,7 @@ class Boat extends Vehicle {
     }
 
     public void startBoat() {
+        System.out.println("Start boat");
     }
 }
 

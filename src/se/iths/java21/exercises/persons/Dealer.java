@@ -3,7 +3,7 @@ package se.iths.java21.exercises.persons;
 import se.iths.java21.exercises.vehicles.Vehicle;
 
 public class Dealer extends Person {
-    private final float COMMISSION = 0.15f;
+    private static final float COMMISSION = 0.15f;
 
     public Dealer(String name, int age, float money) {
         super(name, age, "Vehicle dealer", money);
@@ -11,9 +11,6 @@ public class Dealer extends Person {
 
     public void changeOwner(Vehicle vehicle, Buyer buyer) {
         Person seller = vehicle.getOwner();
-        //if (seller == buyer)
-        //    return;
-
         settlePayment(buyer,seller,vehicle);
         vehicle.setOwner(buyer);
     }
