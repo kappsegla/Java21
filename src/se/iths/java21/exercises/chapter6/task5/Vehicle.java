@@ -78,6 +78,7 @@ class Car extends Vehicle {
     public void burnOut(int seconds) {
         System.out.println("Spinning the wheels for " + seconds + " seconds.");
     }
+
 }
 
 class Motorboat extends Vehicle {
