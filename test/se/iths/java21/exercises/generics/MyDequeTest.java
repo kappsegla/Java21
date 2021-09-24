@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MyDequeTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -44,6 +44,22 @@ class MyDequeTest {
         integerMyDeque.forEachDesc(System.out::println);
         assertEquals("1\r\n2\r\n3\r\n",outContent.toString());
     }
+
+    @Test
+    void forEachRunsOurCodeInRightOrderUsingList() {
+        integerMyDeque.push(1);
+        integerMyDeque.push(2);
+        integerMyDeque.push(3);
+        List<Integer> integers = new ArrayList<>();
+
+        integerMyDeque.forEach(s -> integers.add(s));
+
+        assertEquals(3,integers.get(0));
+        assertEquals(2,integers.get(1));
+        assertEquals(1,integers.get(2));
+    }
+
+
 
     @Test
     void loopingMyDequeUsingIterator() {
