@@ -8,7 +8,11 @@ public class MyStack<T> {
     }
 
     public T pop(){
-        return null;
+//        if (head == null)
+//            return null;
+        var temp = head.data;
+        head = head.next;
+        return temp;
     }
 
     public T peek(){
