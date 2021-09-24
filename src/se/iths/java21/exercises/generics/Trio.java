@@ -1,11 +1,8 @@
 package se.iths.java21.exercises.generics;
 
-import se.iths.java21.exercises.vehicles.AirPlane;
-import se.iths.java21.exercises.vehicles.Car;
-import se.iths.java21.exercises.vehicles.RoadBased;
-import se.iths.java21.exercises.vehicles.Vehicle;
+import se.iths.java21.exercises.vehicles.*;
 
-public class Trio <T extends Vehicle, U extends Vehicle, V extends Vehicle> {
+public class Trio <T extends AirBased, U extends RoadBased, V extends Vehicle> {
     public T first;
     public U second;
     public V third;
@@ -13,7 +10,7 @@ public class Trio <T extends Vehicle, U extends Vehicle, V extends Vehicle> {
 
 
     public static void main(String[] args) {
-        Trio<AirPlane, RoadBased, Car> vehicles = new Trio<>();
+        Trio<AirPlane, Car, Car> vehicles = new Trio<>();
 
     }
 
