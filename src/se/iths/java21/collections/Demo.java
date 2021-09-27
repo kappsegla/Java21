@@ -21,7 +21,6 @@ public class Demo {
         stringList.indexOf("First");
 
         List<Integer> integerList = new ArrayList<>();
-
         integerList.add(1);
         integerList.add(2);
         integerList.add(3);
@@ -31,7 +30,6 @@ public class Demo {
         integerList.add(4);
         integerList.add(4);
         integerList.add(1);
-
         integerList.forEach(System.out::println);
 
         var set = Set.copyOf(integerList);

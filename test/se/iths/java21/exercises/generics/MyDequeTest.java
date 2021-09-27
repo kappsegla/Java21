@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -58,8 +59,6 @@ class MyDequeTest {
         assertEquals(2,integers.get(1));
         assertEquals(1,integers.get(2));
     }
-
-
 
     @Test
     void loopingMyDequeUsingIterator() {
