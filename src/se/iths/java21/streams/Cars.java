@@ -75,10 +75,11 @@ public class Cars {
 
     public static void main(String[] args) {
         Cars cars = new Cars();
-        cars.addCar(new Car(1L, "XC90", "Volvo", 2021, 570000));
-        cars.addCar(new Car(2L, "V60", "Volvo", 2020, 520000));
-        cars.addCar(new Car(3L, "Impreza", "Subaru", 2008, 98000));
-        cars.addCar(new Car(4L, "Model 3", "Tesla", 2019, 472000));
+
+            cars.addCar(new Car(1L, null, "Volvo", 2021, 570000));
+            cars.addCar(new Car(2L, "V60", "Volvo", 2021, 520000));
+            cars.addCar(new Car(3L, "Impreza", "Subaru", 2008, 98000));
+            cars.addCar(new Car(4L, "Model 3", "Tesla", 2019, 472000));
 
         cars.getListOfBrands().forEach(System.out::println);
         System.out.println(cars.getNumberByBrand());
