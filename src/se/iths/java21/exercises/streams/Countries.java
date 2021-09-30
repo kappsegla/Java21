@@ -4,10 +4,18 @@ public class Countries {
     public static void main(String[] args) {
         List<Country> countries = getCountries();
 
-        task2(countries);
-        task3(countries);
+       //task2(countries);
+        // task3(countries).forEach(System.out::println);
+        task4(countries);
 
 
+    }
+
+    private static void task4(List<Country> countries) {
+        countries.stream()
+                .sorted(Comparator.comparing(Country::population).reversed())
+                .map(Country::countryName)
+                .forEach(System.out::println);
     }
 
     private static void task3(List<Country> countries) {
