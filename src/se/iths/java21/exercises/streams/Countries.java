@@ -7,8 +7,18 @@ public class Countries {
         // task2(countries);
         // task3(countries).forEach(System.out::println);
         // task4(countries);
-        task5(countries);
-        task6(countries);
+        //task5(countries);
+        //task6(countries);
+        task7(countries);
+
+    }
+
+    private static void task7(List<Country> countries) {
+        countries.stream()
+                .filter(country -> country.population() < 5)
+                .map(Country::countryName)
+                .forEach(System.out::println);
+
     }
 
     private static void task6(List<Country> countries) {
