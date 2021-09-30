@@ -12,7 +12,16 @@ public class Countries {
     }
 
     private static void task6(List<Country> countries) {
+        double averageArea = countries.stream()
+                .mapToDouble(Country::area)
+                .average()
+                .orElse(0.0);
 
+        long count = countries.stream()
+                .filter(country -> country.area() < averageArea)
+                .count();
+
+        System.out.println(count);
     }
 
     private static void task5(List<Country> countries) {
