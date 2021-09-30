@@ -4,8 +4,26 @@ public class Countries {
     public static void main(String[] args) {
         List<Country> countries = getCountries();
 
+        task2(countries);
+        task3(countries);
 
 
+    }
+
+    private static void task3(List<Country> countries) {
+
+    }
+
+    private static void task2(List<Country> countries) {
+        countries.stream()
+                .findFirst()
+                .map(Country::countryName)
+                .ifPresent(System.out::println);
+
+        countries.stream()
+                .reduce((first, second) -> second)
+                .map(Country::countryName)
+                .ifPresent(System.out::println);
     }
 
     @NotNull
