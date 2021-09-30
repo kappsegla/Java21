@@ -4,10 +4,24 @@ public class Countries {
     public static void main(String[] args) {
         List<Country> countries = getCountries();
 
-       //task2(countries);
+        // task2(countries);
         // task3(countries).forEach(System.out::println);
-        task4(countries);
+        // task4(countries);
+        task5(countries);
+        task6(countries);
+    }
 
+    private static void task6(List<Country> countries) {
+
+    }
+
+    private static void task5(List<Country> countries) {
+        countries.stream()
+                .mapToDouble(Country::population)
+                .max()
+//                .map(country -> country.population())
+//                .max(Double::compare)
+                .ifPresent(System.out::println);
 
     }
 
