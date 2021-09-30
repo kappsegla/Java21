@@ -12,8 +12,14 @@ public class Countries {
         //task7(countries);
         //task8(countries);
         //task9(countries);
-        task10(countries);
-        task11(countries);
+        //task10(countries);
+        //task11(countries);
+        task12(countries);
+
+    }
+
+    private static void task12(List<Country> countries) {
+
 
     }
 
