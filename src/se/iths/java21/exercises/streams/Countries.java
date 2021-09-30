@@ -11,7 +11,22 @@ public class Countries {
         //task6(countries);
         //task7(countries);
         //task8(countries);
-        task9(countries);
+        //task9(countries);
+        task10(countries);
+        task11(countries);
+
+    }
+
+    private static void task11(List<Country> countries) {
+
+
+    }
+
+    private static void task10(List<Country> countries) {
+        countries.stream()
+                .filter(country -> country.countryName().length() > country.capital().length())
+                .map(Country::countryName)
+                .forEach(System.out::println);
     }
 
     private static void task9(List<Country> countries) {
@@ -24,7 +39,7 @@ public class Countries {
     record CountryNameAndCapital(String countryName, String Capital){}
 
     private static boolean compareFirstLetter(Country country) {
-        return country.countryName().startsWith(String.valueOf(country.capital().charAt(0)));
+        return country.countryName().startsWith(country.capital().substring(0,1));
     }
 
     private static void task8(List<Country> countries) {
