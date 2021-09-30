@@ -19,8 +19,12 @@ public class Countries {
     }
 
     private static void task12(List<Country> countries) {
-
-
+        countries.stream()
+                .filter(country -> country.population() > 7.0)
+                .sorted(Comparator.comparingDouble(Country::population))
+                .map(Country::countryName)
+                .limit(4)
+                .forEach(System.out::println);
     }
 
     private static void task11(List<Country> countries) {
@@ -97,8 +101,11 @@ public class Countries {
                 .forEach(System.out::println);
     }
 
-    private static void task3(List<Country> countries) {
-
+    private static List<String> task3(List<Country> countries) {
+        return countries.stream()
+                .map(Country::countryName)
+                .sorted()
+                .toList();
     }
 
     private static void task2(List<Country> countries) {
