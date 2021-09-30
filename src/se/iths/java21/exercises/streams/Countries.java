@@ -9,7 +9,32 @@ public class Countries {
         // task4(countries);
         //task5(countries);
         //task6(countries);
-        task7(countries);
+        //task7(countries);
+        //task8(countries);
+        task9(countries);
+    }
+
+    private static void task9(List<Country> countries) {
+
+        countries.stream()
+                .filter(Countries::compareFirstLetter)
+                .map(country -> new CountryNameAndCapital(country.countryName(),country.capital()))
+                .forEach(System.out::println);
+    }
+    record CountryNameAndCapital(String countryName, String Capital){}
+
+    private static boolean compareFirstLetter(Country country) {
+        return country.countryName().startsWith(String.valueOf(country.capital().charAt(0)));
+    }
+
+    private static void task8(List<Country> countries) {
+
+        System.out.println("area over 10_000: " + countries.stream()
+                .filter(country -> country.area() > 10_000).count());
+        System.out.println("area over 100_000: " + countries.stream()
+                .filter(country -> country.area() > 100_000).count());
+        System.out.println("area over 1_000_000: " + countries.stream()
+                .filter(country -> country.area() > 1_000_000).count());
 
     }
 
