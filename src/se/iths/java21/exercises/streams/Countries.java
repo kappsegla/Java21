@@ -28,7 +28,11 @@ public class Countries {
     }
 
     private static void task11(List<Country> countries) {
-
+        countries.stream()
+                .sorted(Comparator.comparing(Country::population))
+                .map(Country::countryName)
+                .limit(5)
+                .forEach(System.out::println);
 
     }
 
