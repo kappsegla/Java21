@@ -12,12 +12,13 @@ public class FileDemo {
 
     public static void main(String[] args) throws IOException {
         String homeFolder = System.getProperty("user.home");
+        //String lineSeparator = System.getProperty("line.separator");
         Path path = Path.of(homeFolder, "test", "fil1.txt");
         Files.createDirectories(path.getParent());
         System.out.println(Files.exists(path));
         System.out.println(path.toAbsolutePath());
 
-        // Files.writeString(path,"This is a test with åäö ûü");
+        Files.writeString(path,"This is a test with åäö ûü");
         List<String> strings = List.of("First Line", "Second Line", "Third Line");
         Files.write(path, strings, StandardOpenOption.APPEND, StandardOpenOption.CREATE);
 
