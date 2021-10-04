@@ -4,10 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 public class JsonDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         List<Cake> cakes = List.of(
                 new Cake(1, "KanelBulle", 20),
@@ -17,6 +20,9 @@ public class JsonDemo {
         JsonDemo demo = new JsonDemo();
         String json = demo.toJson(cakes);
         System.out.println(json);
+        String homeFolder = System.getProperty("user.home");
+      //  Path path = Path.of(homeFolder, "test", "cakes.json");
+      //  Files.writeString(path,json);
 
         List<Cake> jsonCakesList = demo.fromJson(json);
         jsonCakesList.forEach(System.out::println);
