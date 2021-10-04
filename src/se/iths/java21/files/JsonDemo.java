@@ -15,7 +15,7 @@ public class JsonDemo {
         List<Cake> cakes = List.of(
                 new Cake(1, "KanelBulle", 20),
                 new Cake(2, "Kärleksmums", 15),
-                new Cake(3, "Chokladboll", 45));
+                new Cake(3, "Extra stor Chokladboll", 45));
 
         JsonDemo demo = new JsonDemo();
         String json = demo.toJson(cakes);
