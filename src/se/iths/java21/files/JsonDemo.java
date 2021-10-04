@@ -1,5 +1,9 @@
 package se.iths.java21.files;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.List;
 
 public class JsonDemo {
@@ -19,11 +23,24 @@ public class JsonDemo {
     }
 
     private  String toJson(List<Cake> cakes) {
-        return "";
+        ObjectMapper mapper = new ObjectMapper();
+        String json = "";
+        try {
+            json = mapper.writeValueAsString(cakes);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 
 
     private List<Cake> fromJson(String jsonData){
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.readValue(jsonData,new TypeReference<List<Cake>>(){});
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return List.of();
     }
 
