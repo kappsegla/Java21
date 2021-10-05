@@ -1,7 +1,12 @@
 package se.iths.java21.arrays;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class DynamicArray implements Iterable<Integer> {
 
@@ -42,6 +47,14 @@ public class DynamicArray implements Iterable<Integer> {
         return values;
     }
 
+    public Spliterator<Integer> spliterator(){
+        return new DynamicArraySpliterator();
+    }
+
+    public Stream<Integer> stream(){
+        return StreamSupport.stream(spliterator(),false);
+    }
+
     public static void main(String[] args) {
 
         DynamicArray dynamicArray = new DynamicArray();
@@ -50,21 +63,9 @@ public class DynamicArray implements Iterable<Integer> {
         for (int value : dynamicArray)
             System.out.println(value);
 
-            loopWithRiskOfException(dynamicArray);
-
-
-         }
-
-    private static void loopWithRiskOfException(DynamicArray dynamicArray)  {
-        //Enhanced for-loop uses iterator
-        Iterator<Integer> iterator = dynamicArray.iterator();
-
-        while (iterator.hasNext()) {
-            int value = iterator.next();
-            System.out.println(value);
-        }
-        throw new RuntimeException();
+        dynamicArray.stream().filter(s-> s > 1).forEach(System.out::println);
     }
+
 
     @Override
     public Iterator<Integer> iterator() {
@@ -85,6 +86,36 @@ public class DynamicArray implements Iterable<Integer> {
             if (position >= count)
                 throw new NoSuchElementException("Iterator next outside limits");
             return values[position++];
+        }
+    }
+
+    class DynamicArraySpliterator implements Spliterator<Integer> {
+
+        private int position = 0;
+
+        @Override
+        public boolean tryAdvance(Consumer<? super Integer> action) {
+            if (position < count) {
+                action.accept(values[position]);
+                position++;
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Spliterator<Integer> trySplit() {
+            return null;
+        }
+
+        @Override
+        public long estimateSize() {
+            return count;
+        }
+
+        @Override
+        public int characteristics() {
+            return SIZED;
         }
     }
 
