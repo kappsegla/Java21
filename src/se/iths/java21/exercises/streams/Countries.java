@@ -3,6 +3,7 @@ package se.iths.java21.exercises.streams;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.Buffer;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +27,27 @@ public class Countries {
         //task14(countries);
         //task15(countries);
         //task16(countries);
-        task17(countries);
+        //task17(countries);
+        task18(countries);
+    }
+
+    private static void task18(List<Country> countries) {
+        double firstSixSum = countries.stream()
+                .mapToDouble(Country::population)
+                .sorted()
+                .limit(6)
+                .sum();
+        System.out.println(firstSixSum);
+
+        double lastThreeSum = countries.stream()
+                .map(Country::population)
+                .sorted(Collections.reverseOrder())
+          //      .sorted(Comparator.comparingDouble(Country::population).reversed())
+                .limit(3)
+                .mapToDouble(x -> x)
+                .sum();
+        System.out.println(lastThreeSum);
+
     }
 
     private static void task17(List<Country> countries) {
