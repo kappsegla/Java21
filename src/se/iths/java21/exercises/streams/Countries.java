@@ -19,8 +19,19 @@ public class Countries {
         //task9(countries);
         //task10(countries);
         //task11(countries);
-        task12(countries);
+        //task12(countries);
+        task13(countries);
 
+    }
+
+    private static void task13(List<Country> countries) {
+        //filter, sorted, limit, map, forEach
+        countries.stream()
+                .filter(country -> country.area() >= 500_000)
+                .sorted(Comparator.comparing(Country::countryName).reversed())
+                .limit(3)
+                .map(Country::countryName)
+                .forEach(System.out::println);
     }
 
     private static void task12(List<Country> countries) {
@@ -52,13 +63,15 @@ public class Countries {
 
         countries.stream()
                 .filter(Countries::compareFirstLetter)
-                .map(country -> new CountryNameAndCapital(country.countryName(),country.capital()))
+                .map(country -> new CountryNameAndCapital(country.countryName(), country.capital()))
                 .forEach(System.out::println);
     }
-    record CountryNameAndCapital(String countryName, String Capital){}
+
+    record CountryNameAndCapital(String countryName, String Capital) {
+    }
 
     private static boolean compareFirstLetter(Country country) {
-        return country.countryName().startsWith(country.capital().substring(0,1));
+        return country.countryName().startsWith(country.capital().substring(0, 1));
     }
 
     private static void task8(List<Country> countries) {
