@@ -6,6 +6,8 @@ import java.nio.Buffer;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Countries {
@@ -88,9 +90,14 @@ public class Countries {
     }
 
     private static void task15(List<Country> countries) {
+        var countriesByPop = countries.stream()
+                .sorted(Comparator.comparing(Country::countryName))
+                .collect(Collectors.groupingBy(country -> (int) Math.floor(country.population()),
+                        Collectors.mapping(Country::countryName, Collectors.toList())));
 
-
-
+        countriesByPop.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(System.out::println);
     }
 
 
