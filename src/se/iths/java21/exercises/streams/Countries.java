@@ -24,8 +24,23 @@ public class Countries {
         //task13(countries);
         //task14(countries);
         //task15(countries);
-        task16(countries);
+        //task16(countries);
+        task17(countries);
     }
+
+    private static void task17(List<Country> countries) {
+        countries.stream()
+                .sorted(Comparator.comparing(Countries::getReverse))
+                .map(Country::countryName)
+                .forEach(System.out::println);
+
+    }
+
+    @NotNull
+    private static String getReverse(Country country) {
+        return new StringBuilder(country.capital()).reverse().toString();
+    }
+
 
     private static void task16(List<Country> countries) {
         countries.stream()
