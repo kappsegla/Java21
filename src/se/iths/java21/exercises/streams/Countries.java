@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Countries {
     public static void main(String[] args) {
@@ -20,8 +21,23 @@ public class Countries {
         //task10(countries);
         //task11(countries);
         //task12(countries);
-        task13(countries);
+        //task13(countries);
+        //task14(countries);
+        task15(countries);
+    }
 
+    private static void task15(List<Country> countries) {
+
+
+
+    }
+
+
+    private static void task14(List<Country> countries) {
+        var map = countries.stream()
+                .collect(Collectors.groupingBy(c-> c.countryName().substring(0,1),Collectors.counting()));
+
+        System.out.println(map);
     }
 
     private static void task13(List<Country> countries) {
