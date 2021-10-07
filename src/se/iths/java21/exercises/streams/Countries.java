@@ -23,7 +23,13 @@ public class Countries {
         //task12(countries);
         //task13(countries);
         //task14(countries);
-        task15(countries);
+        //task15(countries);
+        task16(countries);
+    }
+
+    private static void task16(List<Country> countries) {
+
+
     }
 
     private static void task15(List<Country> countries) {
@@ -35,7 +41,7 @@ public class Countries {
 
     private static void task14(List<Country> countries) {
         var map = countries.stream()
-                .collect(Collectors.groupingBy(c-> c.countryName().substring(0,1),Collectors.counting()));
+                .collect(Collectors.groupingBy(c -> c.countryName().substring(0, 1), Collectors.counting()));
 
         System.out.println(map);
     }
