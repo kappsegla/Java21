@@ -86,6 +86,9 @@ public class Countries {
                 .forEach(System.out::println);
     }
 
+    record CountryAndPopDensity(String name, Double popPerSqKm) {
+    }
+
     record CnP(String name, Double population) {
     }
 
