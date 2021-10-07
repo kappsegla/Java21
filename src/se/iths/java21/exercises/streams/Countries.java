@@ -2,6 +2,7 @@ package se.iths.java21.exercises.streams;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.nio.Buffer;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +34,6 @@ public class Countries {
                 .sorted(Comparator.comparing(Countries::getReverse))
                 .map(Country::countryName)
                 .forEach(System.out::println);
-
     }
 
     @NotNull
