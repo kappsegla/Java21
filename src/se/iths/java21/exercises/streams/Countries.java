@@ -28,7 +28,16 @@ public class Countries {
         //task15(countries);
         //task16(countries);
         //task17(countries);
-        task18(countries);
+        //task18(countries);
+        task19(countries);
+    }
+
+    private static void task19(List<Country> countries) {
+        double sumOfPopulation = countries.stream()
+                .filter(country -> country.countryName().length() == 7)
+                .mapToDouble(Country::population)
+                .sum();
+        System.out.println(sumOfPopulation);
     }
 
     private static void task18(List<Country> countries) {
