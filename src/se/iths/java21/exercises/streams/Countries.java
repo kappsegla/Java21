@@ -2,12 +2,10 @@ package se.iths.java21.exercises.streams;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.nio.Buffer;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Countries {
@@ -76,12 +74,12 @@ public class Countries {
 
     private static void task16(List<Country> countries) {
         countries.stream()
-                .map(country -> new CnP(country.countryName(), country.population() * 1_000_000))
+                .map(country -> new CnP(country.countryName(), country.getPopulation()))
                 .forEach(cnP -> System.out.printf("namn: %s, invånare: %.0f %n", cnP.name, cnP.population));
 
         countries.stream()
                 .map(country -> new CountryAndPopDensity(country.countryName(),
-                        country.population() * 1_000_000 / country.area()))
+                        country.getPopulation() / country.area()))
                 .sorted(Comparator.comparing(CountryAndPopDensity::popPerSqKm))
                 .forEach(System.out::println);
     }
