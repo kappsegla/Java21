@@ -167,7 +167,6 @@ public class Countries {
                 .filter(country -> country.area() > 100_000).count());
         System.out.println("area over 1_000_000: " + countries.stream()
                 .filter(country -> country.area() > 1_000_000).count());
-
     }
 
     private static void task7(List<Country> countries) {
