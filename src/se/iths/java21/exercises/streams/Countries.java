@@ -28,9 +28,12 @@ public class Countries {
     }
 
     private static void task16(List<Country> countries) {
-
-
+        countries.stream()
+                .map(country -> new CnP(country.countryName(), country.population()*1_000_000))
+                .forEach(cnP -> System.out.printf("namn: %s, invånare: %.0f %n", cnP.name, cnP.population));
     }
+
+    record CnP(String name, Double population){}
 
     private static void task15(List<Country> countries) {
 
