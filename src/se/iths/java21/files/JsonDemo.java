@@ -43,11 +43,11 @@ public class JsonDemo {
     private List<Cake> fromJson(String jsonData){
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.readValue(jsonData,new TypeReference<List<Cake>>(){});
+            return mapper.readValue(jsonData, new TypeReference<>() {
+            });
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return List.of();
     }
-
 }
