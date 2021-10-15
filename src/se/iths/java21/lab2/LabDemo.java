@@ -77,6 +77,7 @@ public class LabDemo {
         System.out.println("2. Lista produkter");
         System.out.println("3. Ta bort produkt");
         System.out.println("4. Sök efter produkt");
+        System.out.println("5. Öka lager för produkt");
         System.out.println("e. Avsluta");
     }
 
@@ -95,6 +96,13 @@ public class LabDemo {
             default -> System.out.println("Input ej giltig");
         }
         return continueApplication;
+    }
+
+    private void changeInventory() {
+        System.out.println("Vilken produkt vill du ändra antal i lager för?");
+        UUID productID = UUID.fromString(scanner.nextLine());
+        productService.getProduct(productID)
+                .ifPresent(this::changeQuantity);
     }
 
     private void search() {
@@ -131,5 +139,14 @@ public class LabDemo {
         } catch (NumberFormatException e) {
             System.out.println("Det gick inte att skapa en product");
         }
+    }
+
+    private void changeQuantity(Product product) {
+        System.out.println("Hur många vill du lägga till(-ta bort)?");
+        int quantity = Integer.parseInt(scanner.nextLine());
+        if( quantity > 0)
+            productService.increaseInventory(product, quantity);
+        else
+            productService.decreaseInventory(product,quantity);
     }
 }

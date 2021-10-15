@@ -7,9 +7,28 @@ import java.util.*;
 
 public class ProductService {
     private final List<Product> products = new ArrayList<>();
+    private final Map<Product, Integer> inventory = new HashMap<>();
 
     public ProductService() {
     }
+
+    public void increaseInventory(Product product, int quantity) {
+        int newTotal = inventory.getOrDefault(product, 0) + quantity;
+        inventory.put(product, newTotal);
+    }
+
+    public void decreaseInventory(Product product, int quantity) {
+        int newQuantity = inventory.getOrDefault(product, 0) - quantity;
+        if (newQuantity >= 0)
+            inventory.put(product, newQuantity);
+        else
+            throw new IllegalArgumentException("Finns ej tillräckligt med varor i inventory");
+    }
+
+    public int getInventory(Product product) {
+        return inventory.getOrDefault(product, 0);
+    }
+
 
     public void addProducts(Collection<Product> products) {
         this.products.addAll(products);
