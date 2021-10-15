@@ -37,6 +37,7 @@ public class ProductService {
         //return Collections.unmodifiableList(products);  //Returns unmodifiable List with read through
     }
 
+
     public Optional<Product> getProduct(UUID uuid) {
         return products.stream()
                 .filter(product -> product.getId().equals(uuid))

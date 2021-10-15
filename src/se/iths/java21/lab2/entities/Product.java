@@ -9,14 +9,14 @@ public class Product {
     private final UUID id;
     private final String name;
     private final BigDecimal price;
-    private final Category categories;
+    private final Category category;
     private final Brand brand;
 
     public Product(UUID id, String name, BigDecimal price, Category categories, Brand brand) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.categories = categories;
+        this.category = categories;
         this.brand = brand;
     }
 
@@ -33,7 +33,7 @@ public class Product {
     }
 
     public Category getCategories() {
-        return categories;
+        return category;
     }
 
     public Brand getBrand() {
@@ -45,12 +45,12 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(price, product.price) && Objects.equals(categories, product.categories) && Objects.equals(brand, product.brand);
+        return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(price, product.price) && Objects.equals(category, product.category) && Objects.equals(brand, product.brand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, categories, brand);
+        return Objects.hash(id, name, price, category, brand);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Product {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", categories=" + categories +
+                ", categories=" + category +
                 ", brand=" + brand +
                 '}';
     }

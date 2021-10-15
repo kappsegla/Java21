@@ -1,8 +1,19 @@
 package se.iths.java21.lab2;
 
-import java.util.Scanner;
+import se.iths.java21.lab2.entities.Brand;
+import se.iths.java21.lab2.entities.Category;
+import se.iths.java21.lab2.entities.Product;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
+import java.util.stream.Stream;
+import java.util.regex.Pattern;
 
 public class LabDemo {
+    private static final Pattern pattern = Pattern.compile(",");
     private static final Scanner scanner = new Scanner(System.in);
     ProductService productService = new ProductService();
 
@@ -32,6 +43,13 @@ public class LabDemo {
         }
     }
 
+    private void csvRow(Product product, List<String> strings) {
+        strings.add(String.join(",", product.getId().toString(), product.getName(),
+                product.getPrice().toPlainString(),
+                product.getCategories().name(),
+                product.getBrand().name()));
+    }
+
     private void load() {
 
 
@@ -49,13 +67,14 @@ public class LabDemo {
         System.out.println("4. Sök efter produkt");
         System.out.println("e. Avsluta");
     }
-    private String getChoice(){
+
+    private String getChoice() {
         return scanner.nextLine();
     }
 
-    private boolean executeChoice(String choice){
+    private boolean executeChoice(String choice) {
         boolean continueApplication = true;
-        switch (choice){
+        switch (choice) {
             case "1" -> createNewProduct();
             case "2" -> productService.getProducts().forEach(System.out::println);
             case "3" -> removeProduct();
@@ -75,6 +94,24 @@ public class LabDemo {
     }
 
     private void createNewProduct() {
+        try {
+            System.out.println("Ange namn:");
+            String name = scanner.nextLine();
 
+            System.out.println("Ange pris:");
+            BigDecimal price = new BigDecimal(scanner.nextLine());
+
+            System.out.println("Ange kategori: ");
+            Category category = Category.of(scanner.nextLine());
+
+            System.out.println("Ange märke: ");
+            Brand brand = Brand.of(scanner.nextLine());
+
+            Product product = new Product(UUID.randomUUID(), name, price, category, brand);
+            productService.addProduct(product);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Det gick inte att skapa en product");
+        }
     }
 }
