@@ -148,6 +148,7 @@ public class LabDemo {
         if( quantity > 0)
             productService.increaseInventory(product, quantity);
         else
-            productService.decreaseInventory(product,quantity);
+            productService.decreaseInventory(product, Math.abs(quantity));
+        System.out.println("Lager för " + product.getName() + ", " + productService.getInventory(product) + " st.");
     }
 }
