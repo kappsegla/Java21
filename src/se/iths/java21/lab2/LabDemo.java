@@ -32,6 +32,11 @@ public class LabDemo {
         save();
     }
 
+    private Path getPath() {
+        String homePath = System.getProperty("user.home");
+        return Path.of(homePath, "products.csv");
+    }
+
     private void save() {
         List<String> strings = new ArrayList<>();
         strings.add("#products");
@@ -100,7 +105,10 @@ public class LabDemo {
     }
 
     private void removeProduct() {
-
+        productService.getProducts().forEach(System.out::println);
+        System.out.println("Välj ett produkt att ta bort");
+        UUID uuid = UUID.fromString(scanner.nextLine());
+        productService.deleteProduct(uuid);
     }
 
     private void createNewProduct() {
