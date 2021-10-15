@@ -12,11 +12,22 @@ public class LabDemo {
     }
 
     private void run() {
+        load();
         String choice;
         do {
             printMenu();
             choice = getChoice();
         } while (executeChoice(choice));
+        save();
+    }
+
+    private void save() {
+
+    }
+
+    private void load() {
+
+
     }
 
     private void printMenu(){
@@ -34,7 +45,7 @@ public class LabDemo {
         boolean continueApplication = true;
         switch (choice){
             case "1" -> createNewProduct();
-            case "2" -> productService.getProducts();
+            case "2" -> productService.getProducts().forEach(System.out::println);
             case "3" -> removeProduct();
             case "4" -> search();
             case "e" -> continueApplication = false;
