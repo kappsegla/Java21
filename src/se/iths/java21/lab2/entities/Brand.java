@@ -1,5 +1,7 @@
 package se.iths.java21.lab2.entities;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 public class Brand {
