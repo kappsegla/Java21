@@ -1,37 +1,57 @@
 package se.iths.java21.lab2;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class LabDemo {
+    private static final Scanner scanner = new Scanner(System.in);
+    ProductService productService = new ProductService();
 
-    List<Mobile> collection = new ArrayList<>();
-
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) {
         LabDemo demo = new LabDemo();
         demo.run();
     }
 
-    private void run() throws URISyntaxException {
-     //Path path = Path.of("resources","test.txt");
-        Path path = Path.of(ClassLoader.getSystemResource("test.txt").toURI());
-
-        try {
-            System.out.println(Files.readString(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Mobile mobile = new Mobile("Sony",2021);
-        Console.printMobile(mobile);
-        var result = collection.stream().filter(m-> m.getYear() == 2021).findFirst();
-        collection.forEach(System.out::println);
+    private void run() {
+        String choice;
+        do {
+            printMenu();
+            choice = getChoice();
+        } while (executeChoice(choice));
     }
 
+    private void printMenu(){
+        System.out.println("1. Skapa ny produkt");
+        System.out.println("2. Lista produkter");
+        System.out.println("3. Ta bort produkt");
+        System.out.println("4. Sök efter produkt");
+        System.out.println("e. Avsluta");
+    }
+    private String getChoice(){
+        return scanner.nextLine();
+    }
 
+    private boolean executeChoice(String choice){
+        boolean continueApplication = true;
+        switch (choice){
+            case "1" -> createNewProduct();
+            case "2" -> productService.getProducts();
+            case "3" -> removeProduct();
+            case "4" -> search();
+            case "e" -> continueApplication = false;
+            default -> System.out.println("Input ej giltig");
+        }
+        return continueApplication;
+    }
+
+    private void search() {
+
+    }
+
+    private void removeProduct() {
+
+    }
+
+    private void createNewProduct() {
+
+    }
 }
