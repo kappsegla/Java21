@@ -77,7 +77,8 @@ public class LabDemo {
         System.out.println("2. Lista produkter");
         System.out.println("3. Ta bort produkt");
         System.out.println("4. Sök efter produkt");
-        System.out.println("5. Öka lager för produkt");
+        System.out.println("5. Ändra lager för produkt");
+        System.out.println("6. Visa kundvagn");
         System.out.println("e. Avsluta");
     }
 
@@ -93,10 +94,18 @@ public class LabDemo {
             case "3" -> removeProduct();
             case "4" -> search();
             case "5" -> changeInventory();
+            case "6" -> showCart();
             case "e" -> continueApplication = false;
             default -> System.out.println("Input ej giltig");
         }
         return continueApplication;
+    }
+
+    private void showCart() {
+        Cart cart = new Cart();
+        var product = productService.getProduct(UUID.fromString("b7596d30-7fb8-4846-b2f5-7513694c1614"));
+        product.ifPresent(p -> cart.addToCart(p, 200));
+        System.out.println("Rabatt: " + cart.discount());
     }
 
     private void changeInventory() {
@@ -145,7 +154,7 @@ public class LabDemo {
     private void changeQuantity(Product product) {
         System.out.println("Hur många vill du lägga till(-ta bort)?");
         int quantity = Integer.parseInt(scanner.nextLine());
-        if( quantity > 0)
+        if (quantity > 0)
             productService.increaseInventory(product, quantity);
         else
             productService.decreaseInventory(product, Math.abs(quantity));
