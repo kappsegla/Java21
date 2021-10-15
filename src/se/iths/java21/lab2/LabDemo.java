@@ -92,6 +92,7 @@ public class LabDemo {
             case "2" -> productService.getProducts().forEach(System.out::println);
             case "3" -> removeProduct();
             case "4" -> search();
+            case "5" -> changeInventory();
             case "e" -> continueApplication = false;
             default -> System.out.println("Input ej giltig");
         }
