@@ -51,8 +51,15 @@ public class LabDemo {
     }
 
     private void load() {
-
-
+        if (!Files.exists(getPath()))
+            return;
+        Collection<Product> products;
+        try (Stream<String> lines = Files.lines(getPath())) {
+            products = lines.skip(1).map(this::createProduct).toList();
+            productService.addProducts(products);
+        } catch (IOException e) {
+            System.out.println("Error loading from file");
+        }
     }
 
     private Product createProduct(String line) {
@@ -86,7 +93,10 @@ public class LabDemo {
     }
 
     private void search() {
-
+        System.out.println("Sök på produkter enligt kategori:");
+        String categoryName = scanner.nextLine();
+        productService.getByCategory(Category.of(categoryName))
+                .forEach(System.out::println);
     }
 
     private void removeProduct() {
