@@ -37,7 +37,12 @@ public class LabDemo {
 
     }
 
-    private void printMenu(){
+    private Product createProduct(String line) {
+        String[] arr = pattern.split(line);
+        return new Product(UUID.fromString(arr[0]), arr[1], new BigDecimal(arr[2]), Category.of(arr[3]), Brand.of(arr[4]));
+    }
+
+    private void printMenu() {
         System.out.println("1. Skapa ny produkt");
         System.out.println("2. Lista produkter");
         System.out.println("3. Ta bort produkt");
