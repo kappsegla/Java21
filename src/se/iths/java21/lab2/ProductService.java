@@ -11,7 +11,7 @@ public class ProductService {
     public ProductService() {
     }
 
-    public void addProducts(Collection<Product> products){
+    public void addProducts(Collection<Product> products) {
         this.products.addAll(products);
     }
 
