@@ -11,6 +11,10 @@ public class ProductService {
     public ProductService() {
     }
 
+    public void addProducts(Collection<Product> products){
+        this.products.addAll(products);
+    }
+
     public void addProduct(Product product) {
         if (products.contains(product))
             return;

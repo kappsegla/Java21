@@ -22,7 +22,14 @@ public class LabDemo {
     }
 
     private void save() {
-
+        List<String> strings = new ArrayList<>();
+        strings.add("#products");
+        productService.getProducts().forEach(product -> csvRow(product, strings));
+        try {
+            Files.write(getPath(), strings);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void load() {
