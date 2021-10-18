@@ -6,8 +6,11 @@ import se.iths.java21.lab2.entities.Category;
 import se.iths.java21.lab2.entities.Product;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductServiceTest {
@@ -19,7 +22,8 @@ class ProductServiceTest {
         //Act
         var result = productService.getProducts();
         //Assert
-        assertEquals(0, result.size());
+      //  assertEquals(0, result.size(),"Returned List should have length zero");
+        assertThat(result).withFailMessage("List should be empty").isEmpty();
     }
 
     @Test
@@ -32,7 +36,23 @@ class ProductServiceTest {
         productService.addProduct(product);
         //Assert
         var result = productService.getProducts();
-        assertEquals(1,result.size());
-        assertEquals(product, result.get(0));
+        //assertEquals(1,result.size(),"List should have one Product");
+        //assertEquals(product, result.get(0),"Product should be equal to added Product");
+        assertThat(result).isEqualTo(List.of(product)).isNotInstanceOf(ArrayList.class);
+    }
+
+    @Test
+    void getByCategoryShouldReturnListOfProductsOnlyFromThatCategory() {
+        var listOfProducts = createProductList();
+        productService.addProducts(listOfProducts);
+        var result = productService.getByCategory(Category.of("Test"));
+        assertThat(result).filteredOn(p-> p.getCategories() != Category.of("Test")).hasSize(0);
+    }
+
+    private List<Product> createProductList() {
+        return List.of(
+                new Product(UUID.fromString("1d62dd4c-dcfa-4d80-8c77-cda5f0166e35"),"Test1",BigDecimal.TEN,Category.of("Test"),Brand.of("then")),
+                new Product(UUID.fromString("96d93931-86fe-4df4-94fe-c931e61073c9"),"Test2",BigDecimal.TEN,Category.of("NotTest"),Brand.of("samples")),
+                new Product(UUID.fromString("8a0b8d17-f003-4f2e-9563-09fb422f0743"),"Test3",BigDecimal.TEN,Category.of("Test"),Brand.of("notes")));
     }
 }
