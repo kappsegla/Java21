@@ -35,9 +35,9 @@ public class ProductService {
     }
 
     public void addProduct(Product product) {
-        if (products.contains(product))
-            return;
-        products.add(product);
+        if (!products.contains(product)) {
+            products.add(product);
+        }
     }
 
     public void deleteProduct(Product product) {
