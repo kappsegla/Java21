@@ -1,13 +1,17 @@
-package se.iths.java21.patterns.behavioral.command;
+package se.iths.java21.patterns.behavioral.memento;
+
+import se.iths.java21.patterns.behavioral.command.Command;
+import se.iths.java21.patterns.behavioral.command.CommandDemo;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
-public class CommandDemo {
+public class MementoDemo {
     final static Scanner scanner = new Scanner(System.in);
     static int total = 0;
-    static Deque<Command> deque = new ArrayDeque<>();
+
+    static Deque<Integer> deque = new ArrayDeque<>();
 
     public static void main(String[] args) {
 
@@ -16,10 +20,9 @@ public class CommandDemo {
 
             switch (choice) {
                 case 0 -> System.exit(0);
-                case 1 -> CommandDemo.Undo();
-                case 2 -> CommandDemo.DoPlus();
-                case 3 -> CommandDemo.DoMinus();
-                //default -> CommandDemo.Do(choice);
+                case 1 -> MementoDemo.Undo();
+                case 2 -> MementoDemo.DoPlus();
+                case 3 -> MementoDemo.DoMinus();
             }
             System.out.println("Curren total: " + total);
         }
@@ -28,22 +31,20 @@ public class CommandDemo {
     private static void DoMinus() {
         System.out.println("Enter value to substract:");
         int value = scanner.nextInt();
+        deque.addLast(total);
         total -= value;
-        deque.addLast(() -> total += value);
-
     }
 
     private static void DoPlus() {
         System.out.println("Enter value to add:");
         int value = scanner.nextInt();
+        deque.addLast(total);
         total += value;
-        deque.addLast(()->total-=value);
     }
 
     private static void Undo() {
         if( deque.isEmpty())
             return;
-        Command command = deque.removeLast();
-        command.execute();
+        total = deque.removeLast();
     }
 }
