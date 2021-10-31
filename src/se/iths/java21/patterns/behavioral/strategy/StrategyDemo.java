@@ -9,7 +9,5 @@ public class StrategyDemo {
 
         printingStrategy = new MultiLinePrinting();
         printingStrategy.print(person);
-
-
     }
 }
