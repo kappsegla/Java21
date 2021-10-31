@@ -1,36 +1,47 @@
 package se.iths.java21.canyoudoit;
 
+import org.assertj.core.util.Strings;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CanYouDoItTest {
+public class ExerciseTest {
 
     @Test
-    void givenWordThatIsPalindromeShouldReturnTrue() {
-        assertThat(CanYouDoIt.palindrome("Abba")).isTrue();
-        assertThat(CanYouDoIt.palindrome("Racecar")).isTrue();
-        assertThat(CanYouDoIt.palindrome("step on no pets")).isTrue();
-        assertThat(CanYouDoIt.palindrome("02022020")).isTrue();
+    @ParameterizedTest
+    @ValueSource(strings={"abba","racecar","02022020","step on no pets",
+            "never odd or even","top spot","Murder for a jar of red rum",
+            "Cigar? Toss it in a can. It is so tragic.","Borrow or rob?"})
+    void givenWordThatIsPalindromeShouldReturnTrue(String text) {
+        //https://www.grammarly.com/blog/16-surprisingly-funny-palindromes/
+        assertThat(Exercise.palindrome(text)).isTrue();
     }
 
     @Test
-    void givenWordThatIsPalindromeIgnoringWhiteSpaceShouldReturnTrue() {
-        assertThat(CanYouDoIt.palindrome("never odd or even")).isTrue();
-        assertThat(CanYouDoIt.palindrome("top spot")).isTrue();
-        assertThat(CanYouDoIt.palindrome("Murder for a jar of red rum")).isTrue();
-        assertThat(CanYouDoIt.palindrome("Cigar? Toss it in a can. It is so tragic.")).isTrue();
-        assertThat(CanYouDoIt.palindrome("Borrow or rob?")).isTrue();
+    @ParameterizedTest
+    @ValueSource(strings={"no","not palindrome","test"})
+    void givenWordThatIsNotPalindromeReturnFalse(String text) {
+        assertThat(Exercise.palindrome(text)).isFalse();
     }
 
     @Test
     void givenTwoWordsThatAreAnagramsShouldReturnTrue() {
         //Anagram, Write a function that takes two words as an argument and returns true if they are anagrams (contain the exact same letters) and false otherwise.
+        assertThat(Exercise.anagram("anagram","magarna")).isTrue();
+        assertThat(Exercise.anagram("arc","car")).isTrue();
+        assertThat(Exercise.anagram("bored","robed")).isTrue();
+        assertThat(Exercise.anagram("debit card","bad credit")).isTrue();
+        assertThat(Exercise.anagram("A gentleman","Elegant man")).isTrue();
     }
 
     //Reversing a list.
 
+    //Almost valid Palindrome
+    //Given a string s, return true if the string can be palindrome
+    // after deleting at most one character from it.
+    //"abca","racecars","2121"
 
     //Array/List rotation
     //base = [1, 2, 3, 4, 5]
